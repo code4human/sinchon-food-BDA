@@ -37,7 +37,7 @@
             return;
         }
 
-        document.user_form.submit();
+        document.user_form.submit();   // form action="create.php"
     }
 
     function reset_form() {
@@ -68,7 +68,7 @@
         <div id="main_content">
       	<div id="signup_box">
             <h2>Sign Up</h2>
-          	<form name="user_form" method="post" action="member_insert.php">
+          	<form name="user_form" method="post" action="create.php">
                 <div class="form email">
                     <div class="text">Email Address</div>
                     <div class="input">
@@ -94,7 +94,7 @@
                 <div class="form">
                     <div class="text">Nickname</div>
                     <div class="input">
-                        <input type="text" name="name">
+                        <input type="text" name="nickname">
                     </div>                 
                 </div>
 
