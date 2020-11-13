@@ -1,45 +1,45 @@
 <?php
     session_start();
-    if (isset($_SESSION["userid"])) 
-        $userid = $_SESSION["userid"];
-    else $userid = "";
-    if (isset($_SESSION["username"])) 
-        $username = $_SESSION["username"];
-    else $username = "";
-    if (isset($_SESSION["userpoint"])) 
+    if (isset($_SESSION["useremail"]))
+        $useremail = $_SESSION["useremail"];
+    else $useremail = "";
+    if (isset($_SESSION["usernickname"]))
+        $usernickname = $_SESSION["usernickname"];
+    else $usernickname = "";
+    if (isset($_SESSION["userpoint"]))
         $userpoint = $_SESSION["userpoint"];
     else $userpoint = "";
 ?>		
-        <div id="top">
-            <h3>
-                <a href="./index.php">Sinchon Food BDA</a>
-            </h3>
-            <ul id="top_menu">  
+        <div id="header">
+            <h2>
+                <a href="http://localhost/index.php">Sinchon Food BDA</a>
+            </h2>
+            <ul id="header_button">
 <?php
-    if(!$userid) {
+    if(!$useremail) {
 ?>                
                 <span><a href="http://localhost/php/user/create_html.php">Sign Up</a> </span>
                 <span> | </span>
                 <span><a href="http://localhost/php/user/login_html.php">Log In</a></span>
 <?php
     } else {
-                $logged = $username."(".$userid.")님[Point:".$userpoint."]";
+                $logged = "(".$usernickname.") [Point:".$userpoint."]";
 ?>
-                <li><?=$logged?> </li>
-                <li> | </li>
-                <li><a href="http://localhost/php/user/logout.php">Log Out</a> </li>
-                <li> | </li>
-                <li><a href="http://localhost/php/user/user_modify_form.php">Modify Personal Info</a></li>
+                <span><?=$logged?> </span>
+                <span> | </span>
+                <span><a href="http://localhost/php/user/logout.php">Log Out</a> </span>
+                <span> | </span>
+                <span><a href="http://localhost/php/user/user_modify_form.php">Modify Personal Info</a></span>
 <?php
     }
 ?>
             </ul>
         </div>
         <div id="menu_bar">
-            <ul>  
-                <li><a href="http://localhost/index.php">HOME</a></li>
-                <li><a href="message_form.php">쪽지 만들기</a></li>                                
-                <li><a href="board_form.php">게시판 만들기</a></li>
-                <li><a href="index.php">사이트 완성하기</a></li>
-            </ul>
+            <div class="menu_span">
+                <div><a href="http://localhost/index.php">Best Restaurants</a></div>
+                <div><a href="message_form.php">Search</a></div>                                
+                <div><a href="board_form.php">Analysis</a></div>
+                <div><a href="index.php">Reviews</a></div>
+            </div>
         </div>

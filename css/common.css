@@ -1,0 +1,17 @@
+/* header.php */
+#menu_bar {
+    display: flex; justify-content: center;
+    position: relative;
+    height: 60px;
+    background-color: #217645; font-size: 20px; 
+}
+#menu_bar .menu_span {
+    display: flex; justify-content: space-between;
+    position: relative;
+    width: 70%;
+}
+#menu_bar .menu_span div { display: inline absolute; margin-top: 15px; color: white;}
+
+
+/* footer.php */
+
