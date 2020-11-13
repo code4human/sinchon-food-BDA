@@ -2,6 +2,7 @@
 <html>
 <head> 
     <title>Sinchon Food BDA</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
     <link rel="stylesheet" type="text/css" href="../../css/create.css">
     <script type="text/javascript" src="../../js/create.js"></script>
 </head>
@@ -10,8 +11,8 @@
     	<?php include "../header.php";?>
     </header>
 	<section>
-		<div id="main_img_bar">
-            <img src="./img/main_img.png">
+        <div id="main_img" style="height: 200px; text-align: center; background-color: #FFE4B5;">
+            <img src="../../img/banner.png" style="float: center; max-height: 200px; width: auto;">
         </div>
         <div id="main_content">
       	<div id="signup_box">
