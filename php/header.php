@@ -8,13 +8,13 @@
     else $usernickname = "";
     if (isset($_SESSION["userpoint"]))
         $userpoint = $_SESSION["userpoint"];
-    else $userpoint = "";
+    else $userpoint = 0;
 ?>		
         <div id="header">
             <h2>
                 <a href="http://localhost/index.php">Sinchon Food BDA</a>
             </h2>
-            <ul id="header_button">
+            <p id="header_button">
 <?php
     if(!$useremail) {
 ?>                
@@ -23,7 +23,7 @@
                 <span><a href="http://localhost/php/user/login_html.php">Log In</a></span>
 <?php
     } else {
-                $logged = "(".$usernickname.") [Point:".$userpoint."]";
+                $logged = "Hi, ".$usernickname."! [Point:".$userpoint."]";
 ?>
                 <span><?=$logged?> </span>
                 <span> | </span>
@@ -33,7 +33,7 @@
 <?php
     }
 ?>
-            </ul>
+            </p>
         </div>
         <div id="menu_bar">
             <div class="menu_span">
