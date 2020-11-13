@@ -1,9 +1,11 @@
-/* header.php */
-#header {
-    display: flex; justify-content: space-between;
-    padding: 0 10vw;
-}
+/* Remove user agent stylesheet */
+* { padding: 0; margin: 0; }
 
+/* header.php */
+#header_content {
+    display: flex; justify-content: space-between;
+    padding: 5vh 10vw;
+}
 #menu_bar {
     display: flex; justify-content: center;
     height: 60px;
@@ -18,4 +20,16 @@
 
 
 /* footer.php */
+#footer_content { 
+    position: fixed;
+    display: flex; justify-content: space-between;
+    bottom:0; left:0; right: 0; /*뷰포트 상에서 하단고정인 상태. 스크롤과 상관 없음.*/
+    width: 100vw; height: 100px; 
+    background-color: #684626; color: white;
+}
+#footer_content div {
+    width: 25vw;
+    padding: 0 50px;
+}
+#footer_content div div:nth-child(1) {font-weight: 600;}
 
