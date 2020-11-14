@@ -1,0 +1,12 @@
+CREATE TABLE Menu (
+    id INT NOT NULL AUTO_INCREMENT,
+    store INT NOT NULL,
+    name CHAR(30) NOT NULL,
+    price INT NOT NULL,
+    detail TEXT,
+    image LONGBLOB,
+    CONSTRAINT Menu_ID PRIMARY KEY (id),
+    CONSTRAINT Menu_Name UNIQUE (name),
+    CONSTRAINT Menu_FK_Store FOREIGN KEY (store) REFERENCES Store (id) 
+        ON DELETE CASCADE ON UPDATE CASCADE
+);

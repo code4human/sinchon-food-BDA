@@ -37,7 +37,7 @@
 				<div class="form email">
 					<div class="text">Email Address</div>
 					<div class="input">
-						<?=$useremail?>   <!-- email field(PK) is read-only info -->
+						<?=$useremail?>   <!-- email field is read-only info -->
 					</div>                 
 				</div>
 
