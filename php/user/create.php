@@ -9,8 +9,8 @@
 
     include "../../config.php";  
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
-	$sql = "insert into user(email, pass, nickname, signup_date, point) ";
-	$sql .= "values('$email', '$pass', '$nickname', '$signup_date', 0)";
+	$sql = "INSERT INTO User(email, pass, nickname, signup_date, point) ";
+	$sql .= "VALUES('$email', '$pass', '$nickname', '$signup_date', 0)";
 
 	mysqli_query($con, $sql);  // execute $sql
     mysqli_close($con);

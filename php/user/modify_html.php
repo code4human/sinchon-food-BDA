@@ -13,7 +13,7 @@
 <?php
     include "../../config.php";
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
-	$sql = "select * from user where email='$useremail'";   // imported variables in header.php
+	$sql = "SELECT * FROM User WHERE email='$useremail'";   // imported variables in header.php
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
 

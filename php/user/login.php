@@ -4,7 +4,7 @@
 
     include "../../config.php";
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
-    $sql = "select * from user where email='$email'";
+    $sql = "SELECT * FROM User WHERE email='$email'";
     $result = mysqli_query($con, $sql);
     $num_match = mysqli_num_rows($result);
 
