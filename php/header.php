@@ -29,14 +29,14 @@
                 <span> | </span>
                 <span><a href="http://localhost/php/user/logout.php">Log Out</a> </span>
                 <span> | </span>
-                <span><a href="http://localhost/php/user/user_modify_form.php">Modify Personal Info</a></span>
+                <span><a href="http://localhost/php/user/modify_html.php">Modify Personal Info</a></span>
 <?php
     }
 ?>
             </p>
         </div>
         <div id="menu_bar">
-            <div class="menu_span">
+            <div class="menu_div">
                 <div><a href="http://localhost/index.php">Best Restaurants</a></div>
                 <div><a href="message_form.php">Search</a></div>                                
                 <div><a href="board_form.php">Analysis</a></div>
