@@ -9,7 +9,7 @@
     if (isset($_SESSION["userpoint"]))
         $userpoint = $_SESSION["userpoint"];
     else $userpoint = 0;
-?>		
+?>
         <div id="header_content">
             <h2>
                 <a href="http://localhost/index.php">Sinchon Food BDA</a>

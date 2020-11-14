@@ -11,17 +11,16 @@
     height: 60px;
     background-color: #217645; font-size: 20px; 
 }
-#menu_bar .menu_span {
+#menu_bar .menu_div {
     display: flex; justify-content: space-between;
     position: relative;
     width: 70%;
 }
-#menu_bar .menu_span div { display: inline absolute; margin-top: 15px; color: white;}
+#menu_bar .menu_div div { display: inline absolute; margin-top: 15px; color: white;}
 
 
 /* footer.php */
-#footer_content { 
-    position: fixed;
+#footer_content {
     display: flex; justify-content: space-between;
     bottom:0; left:0; right: 0; /*뷰포트 상에서 하단고정인 상태. 스크롤과 상관 없음.*/
     width: 100vw; height: 100px; 
