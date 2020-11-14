@@ -7,7 +7,7 @@
     $email = $email1."@".$email2;
     $signup_date = date("Y-m-d", time());  // save the current date to formated string
 
-    include('../../config.php');  
+    include "../../config.php";  
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
 	$sql = "insert into user(email, pass, nickname, signup_date, point) ";
 	$sql .= "values('$email', '$pass', '$nickname', '$signup_date', 0)";

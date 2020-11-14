@@ -4,7 +4,7 @@
     $pass = $_POST["pass"];
     $nickname = $_POST["nickname"];
           
-    include('../../config.php');  
+    include "../../config.php");  
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
     $sql = "update user set pass='$pass', nickname='$nickname' where email='$email'";
     mysqli_query($con, $sql);

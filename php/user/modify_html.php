@@ -11,7 +11,7 @@
 		<?php include "../header.php";?>
     </header>
 <?php
-    include('../../config.php');
+    include "../../config.php";
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
 	$sql = "select * from user where email='$useremail'";   // imported variables in header.php
     $result = mysqli_query($con, $sql);

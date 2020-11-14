@@ -2,7 +2,7 @@
     $email = $_POST["email"];
     $pass = $_POST["pass"];
 
-    include('../../config.php');
+    include "../../config.php";
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
     $sql = "select * from user where email='$email'";
     $result = mysqli_query($con, $sql);
