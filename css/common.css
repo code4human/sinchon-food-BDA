@@ -1,5 +1,6 @@
 /* Remove user agent stylesheet */
 * { padding: 0; margin: 0; }
+html {width: fit-content;}
 
 /* header.php */
 #header_content {
