@@ -5,12 +5,6 @@ function check_input() {
         document.review_form.store.focus();
         return;
     }
-    else if (!document.review_form.menu.value)
-    {
-        alert("Please fill the menu form!");
-        document.review_form.menu.focus();
-        return;
-    }
     else if (!document.review_form.title.value)
     {
         alert("Please fill the title form!");
