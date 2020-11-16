@@ -3,7 +3,7 @@
 <head> 
     <title>Sinchon Food BDA</title>
 	<link rel="stylesheet" type="text/css" href="../../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../../css/create_review.css">
+	<link rel="stylesheet" type="text/css" href="../../css/get_review.css">
 </head>
 <body> 
     <header>
@@ -15,9 +15,7 @@
         </div>
         <div id="main_content">
             <div id="review_box">
-                <h2 class="title">
-                    Read a Review
-                </h2>
+                <h2>Read a Review</h2>
         <?php
             $id = $_GET["id"];
             $page = $_GET["page"];
@@ -35,7 +33,7 @@
             $title = $row["title"];
             $content = $row["content"];
             $image = $row["image"];
-            $rate_star = $row["rate_star"];
+            $grade = $row["rate_star"];
             $pub_date = $row["pub_date"];
             $hit = $row["hit"];
 
@@ -50,24 +48,63 @@
         ?>
                 <div id="review_content">
                     <div>
-                        <span class="col1"><b>Title :</b> <?=$title?></span>
-                        <span class="col2"><?=$user?> | <?=$pub_date?></span>
+                        <div class="text">Writer</div>
+                        <div class="writer"><?=$user?></div>
                     </div>
                     <div>
+                        <div class="text">Store</div>
+                        <div class="store"><?=$store?></div>
+                    </div>
+                    <div>
+                        <div class="text">Menu</div>
+                        <?php 
+                        if($menu) { 
+                            // read the sql file
+                            $sqlFileToExecute = '../../sql/join_review_menu.sql';
+                            $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
+                            $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
+                            $arr = explode("__", $sql);
+                            $sql = $arr[0].$id.$arr[1];
+                            $result = mysqli_query($con, $sql);
+                            $row = mysqli_fetch_array($result);
+                            $menu_name = $row["name"];
+                            fclose($f);
+                            ?>
+                            <div class="menu"><?=$menu_name?></div>
+                        <?php }
+                        else {
+                            echo "<span>No Menu<span>";
+                        }?> 
+                    </div>
+                    <div>
+                        <div class="text">Title</div>
+                        <div class="title"><?=$title?></div>
+                    </div>
+                    <div>
+                        <div class="text">Image</div>
                         <?php
-                            if(!$image) {
-                                echo "<span>No Image<span>";
-                            }
+                        if(!$image) {
+                            echo "<span>No Image<span>";
+                        }
                         ?>
                     <div>
                     <div>
-                        <?=$content?>
-                    </div>		
+                        <div class="text">Grade</div>
+                        <div class="grade"><?=$grade?></div>
+                    </div>
+                    <div>
+                        <div class="text">Published Date</div>
+                        <div class="pub_date"><?=$pub_date?></div>
+                    </div>
+                    <div>
+                        <div class="text">Number of Hits</div>
+                        <div class="hit"><?=$hit?></div>
+                    </div>
                 </div>
                 <div class="buttons">
                     <input type="button" class="button list" value="See List" onclick="location.href='list_review_html.php?page=<?=$page?>'">
-                    <input type="button" class="button modify" value="Modify" onclick="location.href='modify_review_html.php?page=<?=$page?>'">
-                    <input type="button" class="button delete" value="Delete" onclick="location.href='delete_review.php?page=<?=$page?>'">
+                    <input type="button" class="button modify" value="Modify" onclick="location.href='modify_review_html.php?id=<?=$id?>&page=<?=$page?>'">
+                    <input type="button" class="button delete" value="Delete" onclick="location.href='delete_review.php?id=<?=$id?>&page=<?=$page?>'">
                     <input type="button" class="button write" value="Write a Review" onclick="location.href='create_review_html.php'">
                 </div>
             </div>
