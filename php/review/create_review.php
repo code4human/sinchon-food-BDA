@@ -28,6 +28,8 @@
 	$content = htmlspecialchars($content, ENT_QUOTES);
 
     // image file processing
+    // Do not save image files : INSERT INTO Review (image) VALUES ('$uploaded_image');
+    /*
     $upload_dir = './data/';
 
 	$image_name	 = $_FILES["image"]["name"];
@@ -72,13 +74,11 @@
 		$image_name      = "";
 		$image_type      = "";
 		$copied_image_name = "";
-	}
+    }
+    */
 
     include "../../config.php";  
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
-    
-    // image 삽입
-    // image <<--- '$uploaded_image'
 
     // the menu FK is menu id, not menu name. 
     $sql = "SELECT id FROM Menu where store='$store' AND name='$menu'";
