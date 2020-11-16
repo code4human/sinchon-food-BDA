@@ -8,6 +8,7 @@ CREATE TABLE Review (
     image LONGBLOB,
     rate_star INT NOT NULL,
     pub_date CHAR(30),
+    hit INT DEFAULT 0,
     CONSTRAINT Review_ID PRIMARY KEY (id),
     CONSTRAINT Review_User FOREIGN KEY (user) REFERENCES User (nickname),
     CONSTRAINT Review_Store FOREIGN KEY (store) REFERENCES Store (name),
