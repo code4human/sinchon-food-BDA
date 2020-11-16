@@ -1,12 +1,14 @@
--- This file is made to divide the JOIN sql command in get_review_html.php / modify_review_html.php
--- Why Join?
--- Review 테이블에서 Menu의 name을 가져오려고 하는데,
--- Menu 테이블의 name은 UK가 아니다. 
--- 모든 가게들의 메뉴를 모아둔 테이블이기 때문에 가게별로 같은 이름의 메뉴가 존재하기 때문이다.
--- 따라서 하나의 가게에서 같은 메뉴가 존재하지 않도록 가게와 메뉴 이름을 as composite unique key로 설정해놓았고,
--- 리뷰 테이블에서는 name이 unique하지 않으므로 대신 pk인 id를 외래키로 잡아온다.
--- 만약 이미 작성된 개개의 리뷰를 조회하거나 수정하려고 할 때 웹 페이지에서는 Review테이블의 menu 필드만 select해와서 보여주면 단순한 id만
--- 보여지므로 join을 수행해서 menu의 name을 보여준다.
+-- [WARNING] This file is made to divide the JOIN sql command in get_review_html.php / modify_review_html.php
+-- Why JOIN Operation?
+-- I wanna get the name of menu from the Review table, but the Review table has only id of menu.
+-- It's because the name in the Menu table is not UK alone, so it is not able to be a FK.
+-- The name in the Menu table is just a member of the composite UK with store in the same table.
+-- (A store should not have the same name of menu.)
+-- So in the Review table, the FK referring to Menu table is the id of Menu table.
+-- When a user try to see or modify individual reviews that have already been written, 
+-- the php(web page) shows the name of menu by performing JOIN,
+-- not to show the id of menu in Review table.
+
 SELECT name
 FROM Menu 
     INNER JOIN Review
