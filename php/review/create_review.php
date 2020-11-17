@@ -21,8 +21,9 @@
     $menu = $_POST["menu"];
     $title = $_POST["title"];
     $content = $_POST["content"];
-    $grade = $_POST["grade"];
-    $pub_date = date("Y-m-d", time());  // save the current date to formated string
+	$grade = $_POST["grade"];
+	date_default_timezone_set('Asia/Seoul');
+    $pub_date = date("Y-m-d H:i:s", time());  // save the current date and hour to formated string
 
     // image file processing
     // Do not save image files : INSERT INTO Review (image) VALUES ('$uploaded_image');

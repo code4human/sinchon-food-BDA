@@ -5,7 +5,8 @@
     $nickname = $_POST["nickname"];
 
     $email = $email1."@".$email2;
-    $signup_date = date("Y-m-d", time());  // save the current date to formated string
+    date_default_timezone_set('Asia/Seoul');
+    $signup_date = date("Y-m-d H:i:s", time());  // save the current date and hour to formated string
 
     include "../../config.php";  
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php

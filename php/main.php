@@ -3,7 +3,7 @@
         </div>
         <div id="main_content">
             <div id="point_top_box" class="box">
-                <h4>Point Top5 Ranking</h4>
+                <h4>Active Users</h4>
                 <div id="point_top_list">
                     <ul>
                         <li>
@@ -21,16 +21,14 @@
                     $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
                     $result = mysqli_query($con, $sql);
                     if ($result) {
-                        $rank = 1;
                         while ($row = mysqli_fetch_array($result)) {
                 ?>
                             <li>
-                                <span class="li_ran"><?=$rank?></span>
+                                <span class="li_ran"><?=$row["rank"]?></span>
                                 <span class="li_nic"><?=$row["nickname"]?></span>
                                 <span class="li_poi"><?=$row["point"]?></span>
                             </li>
                 <?php
-                            $rank++;
                         }
                     }
                     else {
