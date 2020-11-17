@@ -2,9 +2,9 @@
     session_start();
     if (isset($_SESSION["useremail"])) {
         $useremail = $_SESSION["useremail"];
-        include "../../config.php";  
+        include $_SERVER["DOCUMENT_ROOT"]."/config.php";   // absolute path of config.php
         $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
-        $sql = "SELECT point FROM User where email='$useremail'";
+        $sql = "SELECT point FROM User WHERE email='$useremail'";
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);
         $userpoint = isset($row) ? $row["point"] : 0;
