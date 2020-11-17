@@ -1,28 +1,52 @@
 /* 메인 콘텐트 */
 #main_content { 
-    position: relative; 
+    position: relative;
+    display: flex; justify-content: space-between;
     width: 1000px; height: 240px; 
     margin: 0 auto; 
 }
 
-#best_food { 
-    position: absolute; 
-    top: 30px; left: 50px;
-}
-#best_food h4 { 
-    width: 500px; 
+/* box */
+.box { margin: 20px 0; padding: 0 10px;}
+.box li { display: flex; list-style:none; }
+.box h4 { 
     font-size: 16px; 
     padding-bottom: 5px; 
     border-bottom: solid 1px #dddddd; 
 }
 
-#best_custom { 
-    position: absolute; 
-    top: 30px; left: 590px; 
+/* point_top_box */
+#point_top_box {
+    width: 40%;
 }
-#best_custom h4 { 
-    width: 350px; 
-    font-size: 16px; 
-    padding-bottom: 5px; 
-    border-bottom: solid 1px #dddddd; 
+#point_top_box #point_top_list ul li { border-bottom: solid 1px #dddddd; margin: 5px 0;}
+#point_top_box #point_top_list ul li h5 { padding-left: 5px; }
+#point_top_box #point_top_list ul li h5.li_ran { width: 30%; }
+#point_top_box #point_top_list ul li h5.li_nic { width: 50%; }
+#point_top_box #point_top_list ul li h5.li_poi { width: 20%; }
+#point_top_box #point_top_list ul li span {
+    padding-left: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px #dbdbdb;
 }
+#point_top_box #point_top_list ul li span.li_ran { width: 30%; }
+#point_top_box #point_top_list ul li span.li_nic { width: 50%; }
+#point_top_box #point_top_list ul li span.li_poi { width: 20%; }
+
+/* recent_box */
+#recent_box {
+    width: 50%;
+}
+#recent_box #review_list ul li { border-bottom: solid 1px #dddddd; margin: 5px 0;}
+#recent_box #review_list ul li h5 { padding-left: 5px; }
+#recent_box #review_list ul li h5.li_tit { width: 40%; }
+#recent_box #review_list ul li h5.li_sto { width: 40%; }
+#recent_box #review_list ul li h5.li_wri { width: 20%; }
+#recent_box #review_list ul li span {
+    padding-left: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px #dbdbdb;
+}
+#recent_box #review_list ul li span.li_tit { width: 40%; }
+#recent_box #review_list ul li span.li_sto { width: 40%; }
+#recent_box #review_list ul li span.li_wri { width: 20%; }
