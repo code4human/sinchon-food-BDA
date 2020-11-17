@@ -42,6 +42,6 @@ html {width: fit-content;}
     width: 25vw;
     padding: 0 50px;
 }
-#footer_content div#copyright { transform: translate(20%, 0);}
+#footer_content div#copyright { transform: translate(10%, 0);}
 #footer_content div div:nth-child(1) {font-weight: 600;}
 

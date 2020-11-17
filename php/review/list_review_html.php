@@ -62,7 +62,7 @@
 					$store = $row["store"];
 					$title = $row["title"];
 					$rate_star = $row["rate_star"];
-					$pub_date = $row["pub_date"];
+					$pub_date = explode(" ", $row["pub_date"])[0];   // $row["pub_data"] is too long
 					$hit = $row["hit"];
 				?>
 						<li>

@@ -106,7 +106,7 @@
                     </div>
                     <div class="buttons">
                 <?php
-                    if ($_SESSION["usernickname"] == $user) {?>
+                    if (isset($_SESSION["usernickname"]) && ($_SESSION["usernickname"] == $user)) {?>
                         <input type="button" class="button list" value="See List" onclick="location.href='list_review_html.php?page=<?=$page?>'">
                         <input type="button" class="button modify" value="Modify" onclick="location.href='modify_review_html.php?id=<?=$id?>&page=<?=$page?>'">
                         <input type="button" class="button delete" value="Delete" onclick="location.href='delete_review.php?id=<?=$id?>&page=<?=$page?>'">

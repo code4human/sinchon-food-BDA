@@ -1,6 +1,6 @@
 /* main_content style */
 #main_content {
-    position: relative; width: 1000px; height: 550px; margin: 20px auto;
+    position: relative; width: 1000px; height: 600px; margin: 20px auto;
 }
 
 /* review_list_box style */
@@ -15,9 +15,11 @@
     border-bottom-left-radius: 0.25rem;
 }
 #review_list_box #review_list ul li { display: flex; list-style:none; }
-#review_list_box #review_list ul li h4.li_num,h4.li_hit { width: 10%;}
+#review_list_box #review_list ul li h4.li_num { width: 10%;}
+#review_list_box #review_list ul li h4.li_hit { width: 5%;}
 #review_list_box #review_list ul li h4.li_tit { width: 35%;}
-#review_list_box #review_list ul li h4.li_sto,h4.li_wri,h4.li_pub { width: 15%;}
+#review_list_box #review_list ul li h4.li_sto { width: 20%; }
+#review_list_box #review_list ul li h4.li_wri,h4.li_pub { width: 15%;}
 #review_list_box #review_list ul#review_content li {
     margin : 10px 0;
     box-shadow: 0 0 0 1px #dbdbdb;
@@ -27,9 +29,11 @@
     overflow: hidden;
     box-shadow: 0 0 0 1px #dbdbdb;
 }
-#review_list_box #review_list ul li span.li_num,span.li_hit { width: 10%;}
+#review_list_box #review_list ul li span.li_num { width: 10%;}
+#review_list_box #review_list ul li span.li_hit { width: 5%;}
 #review_list_box #review_list ul li span.li_tit { width: 35%;}
-#review_list_box #review_list ul li span.li_sto,span.li_wri,span.li_pub { width: 15%;}
+#review_list_box #review_list ul li span.li_sto { width: 20%;}
+#review_list_box #review_list ul li span.li_wri,span.li_pub { width: 15%;}
 
 /* bottom(page_num & button) style */
 #review_list_box #review_list #bottom {

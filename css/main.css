@@ -2,12 +2,12 @@
 #main_content { 
     position: relative;
     display: flex; justify-content: space-between;
-    width: 1000px; height: 240px; 
+    width: 1000px; height: 320px; 
     margin: 0 auto; 
 }
 
 /* box */
-.box { margin: 20px 0; padding: 0 10px;}
+.box { margin: 40px 0 20px 0; padding: 0 10px;}
 .box li { display: flex; list-style:none; }
 .box h4 { 
     font-size: 16px; 
