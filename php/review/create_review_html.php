@@ -17,7 +17,7 @@
 					url: 'ajax_select_data.php',
 					data: 'store_name='+storeName,
 					success:function(html) {
-						$('#store').html('<option value='+storeName+'>'+storeName+'</option>');
+						$('#store').html('<option value="'+storeName+'">'+storeName+'</option>');
 						$('#menu').html(html);
 					}
 				});

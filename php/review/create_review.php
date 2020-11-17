@@ -24,9 +24,6 @@
     $grade = $_POST["grade"];
     $pub_date = date("Y-m-d", time());  // save the current date to formated string
 
-	$title = htmlspecialchars($title, ENT_QUOTES);
-	$content = htmlspecialchars($content, ENT_QUOTES);
-
     // image file processing
     // Do not save image files : INSERT INTO Review (image) VALUES ('$uploaded_image');
     /*
@@ -81,23 +78,28 @@
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
 
     // the menu FK is menu id, not menu name. 
-    $sql = "SELECT id FROM Menu where store='$store' AND name='$menu'";
+    $sql = "SELECT id FROM Menu WHERE store='$store' AND name='$menu'";
     $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_array($result);
-    $menu_id = $row["id"];
+	$row = mysqli_fetch_array($result);
+	$menu_id = isset($row) ? $row["id"] : NULL;   // handle exception
 
     $sql = "INSERT INTO Review (user, store, menu, title, content, rate_star, pub_date) ";
 	$sql .= "VALUES ('$usernickname', '$store', $menu_id, '$title', '$content', '$grade', '$pub_date')";
 	mysqli_query($con, $sql);   // execute $sql
 
-	// add 100 points to writer
-	$sql = "SELECT point FROM User where email='$useremail'";
-	$result = mysqli_query($con, $sql);
-	$row = mysqli_fetch_array($result);
-	$new_point = $row["point"] + 100;
-	
-	$sql = "UPDATE User SET point=$new_point where email='$useremail'";
-	mysqli_query($con, $sql);
+	// add 100 points to writer (if mysqli_fetch_array() does not fail)
+	if ($menu_id) {
+		$sql = "SELECT point FROM User where email='$useremail'";
+		$result = mysqli_query($con, $sql);
+		$row = $result->fetch_assoc();
+		$new_point = $row["point"] + 100;
+		
+		$sql = "UPDATE User SET point=$new_point where email='$useremail'";
+		mysqli_query($con, $sql);
+	}
+	else {
+		echo '<script>alert("Your review was not written due to failure of mysqli_fetch_array(). Please try again.");</script>';
+	}
 	mysqli_close($con); 
 
 	echo "

@@ -85,7 +85,7 @@
 				if ($total_num_page>=2 && $page >= 2)	
 				{
 					$new_page = $page-1;
-					echo "<span> <a href='list_review_html.php?page=$new_page'>◀Previous</a>&nbsp</span>";
+					echo "<span> ◀<a href='list_review_html.php?page=$new_page'>Previous</a>&nbsp</span>";
 				}		
 				else 
 					echo "<span>&nbsp</span>";
@@ -105,7 +105,7 @@
 				if ($total_num_page>=2 && $page != $total_num_page)		
 				{
 					$new_page = $page+1;	
-					echo "<span> <a href='list_review_html.php?page=$new_page'>Next▶</a> </span>";
+					echo "<span> <a href='list_review_html.php?page=$new_page'>Next</a>▶ </span>";
 				}
 				else 
 					echo "<span>&nbsp</span>";

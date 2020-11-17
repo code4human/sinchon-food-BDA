@@ -39,7 +39,6 @@
             session_start();
             $_SESSION["useremail"] = $row["email"];
             $_SESSION["usernickname"] = $row["nickname"];
-            $_SESSION["userpoint"] = $row["point"];
 
             echo("
               <script>
