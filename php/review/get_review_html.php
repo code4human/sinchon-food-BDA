@@ -47,15 +47,15 @@
             mysqli_query($con, $sql);
         ?>
                 <div id="review_content">
-                    <div>
+                    <div class="info">
                         <div class="text">Writer</div>
-                        <div class="writer"><?=$user?></div>
+                        <div class="user"><?=$user?></div>
                     </div>
-                    <div>
+                    <div class="info">
                         <div class="text">Store</div>
                         <div class="store"><?=$store?></div>
                     </div>
-                    <div>
+                    <div class="info">
                         <div class="text">Menu</div>
                         <?php 
                         if($menu) { 
@@ -76,36 +76,40 @@
                             echo "<span>No Menu<span>";
                         }?> 
                     </div>
-                    <div>
+                    <div class="info">
                         <div class="text">Title</div>
                         <div class="title"><?=$title?></div>
                     </div>
-                    <div>
+                    <div class="info">
+                        <div class="text">Content</div>
+                        <div class="content"><?=$content?></div>
+                    </div>
+                    <div class="info">
                         <div class="text">Image</div>
                         <?php
                         if(!$image) {
                             echo "<span>No Image<span>";
                         }
                         ?>
-                    <div>
-                    <div>
+                    </div>
+                    <div class="info">
                         <div class="text">Grade</div>
                         <div class="grade"><?=$grade?></div>
                     </div>
-                    <div>
+                    <div class="info">
                         <div class="text">Published Date</div>
                         <div class="pub_date"><?=$pub_date?></div>
                     </div>
-                    <div>
+                    <div class="info">
                         <div class="text">Number of Hits</div>
                         <div class="hit"><?=$hit?></div>
                     </div>
-                </div>
-                <div class="buttons">
-                    <input type="button" class="button list" value="See List" onclick="location.href='list_review_html.php?page=<?=$page?>'">
-                    <input type="button" class="button modify" value="Modify" onclick="location.href='modify_review_html.php?id=<?=$id?>&page=<?=$page?>'">
-                    <input type="button" class="button delete" value="Delete" onclick="location.href='delete_review.php?id=<?=$id?>&page=<?=$page?>'">
-                    <input type="button" class="button write" value="Write a Review" onclick="location.href='create_review_html.php'">
+                    <div class="buttons">
+                        <input type="button" class="button list" value="See List" onclick="location.href='list_review_html.php?page=<?=$page?>'">
+                        <input type="button" class="button modify" value="Modify" onclick="location.href='modify_review_html.php?id=<?=$id?>&page=<?=$page?>'">
+                        <input type="button" class="button delete" value="Delete" onclick="location.href='delete_review.php?id=<?=$id?>&page=<?=$page?>'">
+                        <input type="button" class="button write" value="Write a Review" onclick="location.href='create_review_html.php'">
+                    </div>
                 </div>
             </div>
         </div>

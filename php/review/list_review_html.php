@@ -15,115 +15,115 @@
         </div>
         <div id="main_content">
       		<div id="review_list_box">
-                <h2>Review List</h2>
-                <ul id="review_list">
-					<li>
-						<span class="li_num">Number</span>
-						<span class="li_tit">Title</span>
-						<span class="li_sto">Store</span>
-						<span class="li_wri">Writer</span>
-						<span class="li_pub">Published</span>
-						<span class="li_hit">Hits</span>
-					</li>
-					<?php
-					if (isset($_GET["page"]))
-						$page = $_GET["page"];
-					else
-						$page = 1;
+				<h2>Review List</h2>
+				<div id="review_list">
+					<ul id="review_title">
+						<li>
+							<h4 class="li_num">Number</h4>
+							<h4 class="li_tit">Title</h4>
+							<h4 class="li_sto">Store</h4>
+							<h4 class="li_wri">Writer</h4>
+							<h4 class="li_pub">Published</h4>
+							<h4 class="li_hit">Hits</h4>
+						</li>
+					</ul>
+					<ul id="review_content">
+				<?php
+				if (isset($_GET["page"]))
+					$page = $_GET["page"];
+				else
+					$page = 1;
 
-					include "../../config.php";
-					$con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
-					$sql = "SELECT * FROM Review ORDER BY id DESC";
-					$result = mysqli_query($con, $sql);
-					$total_num_review = mysqli_num_rows($result);   // total number of reviews
-					$unit = 10;   // page unit (10 reviews)
+				include "../../config.php";
+				$con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
+				$sql = "SELECT * FROM Review ORDER BY id DESC";
+				$result = mysqli_query($con, $sql);
+				$total_num_review = mysqli_num_rows($result);   // total number of reviews
+				$unit = 10;   // page unit (10 reviews)
 
-					// count the total number of pages ($total_num_page)
-					if ($total_num_review % $unit == 0)     
-						$total_num_page = floor($total_num_review/$unit);      
-					else
-						$total_num_page = floor($total_num_review/$unit) + 1; 
-				
-					// count the $start depending on displaying page($page)
-					$start = ($page - 1) * $unit;      
-					$number = $total_num_review - $start;
+				// count the total number of pages ($total_num_page)
+				if ($total_num_review % $unit == 0)     
+					$total_num_page = floor($total_num_review/$unit);      
+				else
+					$total_num_page = floor($total_num_review/$unit) + 1; 
+			
+				// count the $start depending on displaying page($page)
+				$start = ($page - 1) * $unit;      
+				$number = $total_num_review - $start;
 
-					for ($i=$start; $i<$start+$unit && $i < $total_num_review; $i++)
-					{
-						mysqli_data_seek($result, $i);
-						// move the pointer to record to import
-						$row = mysqli_fetch_array($result);
-						// fetch one record
-						$id = $row["id"];
-						$user = $row["user"];
-						$store = $row["store"];
-						$title = $row["title"];
-						$rate_star = $row["rate_star"];
-						$pub_date = $row["pub_date"];
-						$hit = $row["hit"];
-					?>
-					<li>
-						<span class="li_num"><?=$id?></span>
-						<span class="li_tit"><a href="get_review_html.php?id=<?=$id?>&page=<?=$page?>"><?=$title?></a></span>
-						<span class="li_sto"><?=$store?></span>
-						<span class="li_wri"><?=$user?></span>
-						<span class="li_pub"><?=$pub_date?></span>
-						<span class="li_hit"><?=$hit?></span>
-					</li>	
-					<?php
-						$number--;
-					}
-					mysqli_close($con);
-					?>	
-				</ul>
-				<ul id="page_num">
+				for ($i=$start; $i<$start+$unit && $i < $total_num_review; $i++)
+				{
+					mysqli_data_seek($result, $i);
+					// move the pointer to record to import
+					$row = mysqli_fetch_array($result);
+					// fetch one record
+					$id = $row["id"];
+					$user = $row["user"];
+					$store = $row["store"];
+					$title = $row["title"];
+					$rate_star = $row["rate_star"];
+					$pub_date = $row["pub_date"];
+					$hit = $row["hit"];
+				?>
+						<li>
+							<span class="li_num"><?=$id?></span>
+							<span class="li_tit"><a href="get_review_html.php?id=<?=$id?>&page=<?=$page?>"><?=$title?></a></span>
+							<span class="li_sto"><?=$store?></span>
+							<span class="li_wri"><?=$user?></span>
+							<span class="li_pub"><?=$pub_date?></span>
+							<span class="li_hit"><?=$hit?></span>
+						</li>	
+						<?php
+							$number--;
+						}
+						mysqli_close($con);
+						?>	
+					</ul>
+					<div id="bottom">
+						<div id="page_num">
 				<?php
 				if ($total_num_page>=2 && $page >= 2)	
 				{
 					$new_page = $page-1;
-					echo "<li><a href='board_list.php?page=$new_page'>◀ 이전</a> </li>";
+					echo "<span> <a href='list_review_html.php?page=$new_page'>◀Previous</a>&nbsp</span>";
 				}		
 				else 
-					echo "<li>&nbsp;</li>";
+					echo "<span>&nbsp</span>";
 
 				// print page link numbers at the bottom of the review list
 				for ($i=1; $i<=$total_num_page; $i++)
 				{
 					if ($page == $i)     // do not link current page number
 					{
-						echo "<li><b> $i </b></li>";
+						echo "<span> <b>Page$i</b>&nbsp</span>";
 					}
 					else
 					{
-						echo "<li><a href='board_list.php?page=$i'> $i </a><li>";
+						echo "<span> <a href='list_review_html.php?page=$i'>Page$i</a> <span>";
 					}
 				}
 				if ($total_num_page>=2 && $page != $total_num_page)		
 				{
 					$new_page = $page+1;	
-					echo "<li> <a href='board_list.php?page=$new_page'>다음 ▶</a> </li>";
+					echo "<span> <a href='list_review_html.php?page=$new_page'>Next▶</a> </span>";
 				}
 				else 
-					echo "<li>&nbsp;</li>";
-			?>
-				</ul>	
-				<ul class="buttons">
-					<li><button onclick="location.href='list_review_html.php'">Review List</button></li>
-					<li>
-					<?php 
-						if($usernickname) {
-					?>
-						<button onclick="location.href='create_review_html.php'">Write a Review</button>
-					<?php
-						} 
-						else {
-					?>
-						<a href="javascript:alert('You can write a review after sign in!')"><button>Write a Review</button></a>
-					<?php
-						}
-					?>
-					</li>
-				</ul>
+					echo "<span>&nbsp</span>";
+				?>
+						</div>	
+						<div class="buttons">
+							<?php 
+							if($usernickname) {?>
+								<input type="button" class="button" value="Write a Review" onclick="location.href='create_review_html.php?page=<?=$page?>'">
+							<?php
+							} 
+							else {?>
+								<a href="javascript:alert('You can write a review after sign in!')"><input type="button" class="button" value="Write a Review"></a>
+							<?php
+							}?>
+						</div>
+					</div>
+				</div>
     		</div>
         </div>
 	</section>
@@ -132,4 +132,3 @@
     </footer>
 </body>
 </html>
-
