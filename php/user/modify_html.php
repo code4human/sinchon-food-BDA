@@ -36,9 +36,7 @@
           	<form  name="user_form" method="post" action="modify.php?email=<?=$useremail?>">
 				<div class="form email">
 					<div class="text">Email Address</div>
-					<div class="input">
-						<?=$useremail?>   <!-- email field is read-only info -->
-					</div>                 
+					<div class="input read"><?=$useremail?></div>                 
 				</div>
 
 				<div class="form">
@@ -64,9 +62,7 @@
 
 				<div class="form">
 					<div class="text">Point</div>
-					<div class="input">
-						<?=$point?>   <!-- point field is read-only info -->
-					</div>                 
+					<div class="input read"><?=$point?></div>                 
 				</div>
 
 				<div class="buttons">
