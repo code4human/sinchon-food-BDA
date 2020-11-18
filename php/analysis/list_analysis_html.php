@@ -84,32 +84,100 @@
             <ul>
                 <li id="ana_box_4" class="box">
                     <h3>Where influencer recently visited</h3>
-                    <div>	    	
+                    <div>
+                    <?php
+                        $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_influencer_visit.sql";
+                        $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
+                        $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
+                        $result = mysqli_query($con, $sql);
+                        if ($result) {
+                            if ($row = mysqli_fetch_array($result)) {
+                                $pub_date = explode(" ", $row["pub_date"])[0];
+                    ?>
+                                <span>
+                                    <b><?=$row["user"]?></b> left 
+                                    <a href='../review/get_review_html.php?id=<?=$row["id"]?>&page='>a review of <b><?=$row["store"]?></b> on <?=$pub_date?></a>
+                                </span>
+                    <?php
+                            }
+                        }
+                        else {
+                            echo "sql query has failed";
+                        }
+                    ?>	    	
                     </div>
                 </li>
                 <li id="ana_box_5" class="box">
-                    <h3>Worst Restaurant</h3>
-                    <div>	    	
+                    <h3>Best Restaurant(reasonable price, many reviews, high grade)</h3>
+                    <div>
+                    <?php
+                        $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_best_store.sql";
+                        $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
+                        $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
+                        $result = mysqli_query($con, $sql);
+                        if ($result) {
+                            if ($row = mysqli_fetch_array($result)) {
+                    ?>
+                                <span><?=$row["store"]?></span>
+                    <?php
+                            }
+                        }
+                        else {
+                            echo "sql query has failed";
+                        }
+                    ?>    	
                     </div>
                 </li>
                 <li id="ana_box_6" class="box">
-                    <h3>Best Restaurant</h3>
-                    <div>	    	
+                    <h3>Best Review(high number of hits)</h3>
+                    <div>
+                    <?php
+                        $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_best_review.sql";
+                        $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
+                        $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
+                        $result = mysqli_query($con, $sql);
+                        if ($result) {
+                            if ($row = mysqli_fetch_array($result)) {
+                                $pub_date = explode(" ", $row["pub_date"])[0];
+                    ?>
+                                <span>
+                                    <a href='../review/get_review_html.php?id=<?=$row["id"]?>&page='><b><?=$row["user"]?></b>'s review of <b><?=$row["store"]?></b> on <?=$pub_date?> (hits <b><?=$row["hit"]?></b>)</a>
+                                </span>
+                    <?php
+                            }
+                        }
+                        else {
+                            echo "sql query has failed";
+                        }
+                    ?>	    	
                     </div>
                 </li>
             </ul>
+        <?php
+            if (isset($_SESSION["usernickname"])) {
+        ?>
             <ul>
                 <li id="ana_box_7" class="box">
-                    <h3>A Restaurant that You May Wonder</h3>
-                    <div>
-                        회원이 안 가본 곳이 있다면 
-                    </div>
-                </li>
-                <li id="ana_box_8" class="box">
                     <h3>A Restaurant You Might Like</h3>
                     <div>
-                        회원이 리뷰를 많이 남긴 카테고리(ex.태국식)에서 가장 많은 리뷰(or grade AVG 최상)를
-                        갖는 가게 추천 	
+                    <?php
+                        $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_custom_taste.sql";
+                        $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
+                        $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
+                        $arr = explode("&&", $sql);
+                        $sql = $arr[0]."'".$_SESSION["usernickname"]."'".$arr[1];
+                        $result = mysqli_query($con, $sql);
+                        if ($result) {
+                            if ($row = mysqli_fetch_array($result)) {
+                            ?> <span><?=$row["name"]?></span>
+                            <?php
+                            }
+                        }
+                        else {
+                            echo "sql query has failed";
+                        }
+            }
+            ?>	    	
                     </div>
                 </li>
             </ul>

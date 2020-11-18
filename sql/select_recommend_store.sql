@@ -1,0 +1,2 @@
+-- Search the category of the store where the user left a lot of reviews.
+-- And recommend the store with the most reviews and the highest average grade.
