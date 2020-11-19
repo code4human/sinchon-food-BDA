@@ -3,8 +3,8 @@
 <head>
 	<title>Sinchon Food BDA</title>
 	<link rel="stylesheet" type="text/css" href="../../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../../css/create.css">
-	<script type="text/javascript" src="../../js/modify.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/create_html.css">
+	<script type="text/javascript" src="../../js/modify_user.js"></script>
 </head>
 <body> 
 	<header>
@@ -33,7 +33,7 @@
         <div id="main_content">
       	<div id="signup_box">
 		  	<h2>Modify Personal Info</h2>
-          	<form  name="user_form" method="post" action="modify.php?email=<?=$useremail?>">
+          	<form  name="user_form" method="post" action="modify_user.php?email=<?=$useremail?>">
 				<div class="form email">
 					<div class="text">Email Address</div>
 					<div class="input read"><?=$useremail?></div>                 

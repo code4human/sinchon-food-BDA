@@ -3,7 +3,7 @@
 <head> 
     <title>Sinchon Food BDA</title>
     <link rel="stylesheet" type="text/css" href="../../css/common.css">
-    <link rel="stylesheet" type="text/css" href="../../css/create.css">
+    <link rel="stylesheet" type="text/css" href="../../css/create_html.css">
     <script type="text/javascript" src="../../js/create.js"></script>
 </head>
 <body> 
@@ -17,7 +17,7 @@
         <div id="main_content">
       	<div id="signup_box">
             <h2>Sign Up</h2>
-          	<form name="user_form" method="post" action="create.php">
+          	<form name="user_form" method="post" action="create_user.php">
                 <div class="form email">
                     <div class="text">Email Address</div>
                     <div class="input">

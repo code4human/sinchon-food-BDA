@@ -1,5 +1,5 @@
 <?php
-    $email = $_GET["email"];   // received value from the action of user_form in modify_html.php
+    $email = $_GET["email"];   // received value from the action of user_form in modify_user_html.php
 
     $pass = $_POST["pass"];
     $nickname = $_POST["nickname"];

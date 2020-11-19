@@ -11,5 +11,5 @@ function check_input() {
         return;
     }
     
-    document.login_form.submit();   // form action="login.php"
+    document.login_form.submit();   // form action="signin_user.php"
 }

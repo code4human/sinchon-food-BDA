@@ -31,7 +31,7 @@ function check_input() {
         return;
     }
 
-    document.user_form.submit();   // form action="create.php"
+    document.user_form.submit();   // form action="create_user.php"
 }
 
 function reset_form() {
@@ -45,8 +45,8 @@ function reset_form() {
 }
 
 function check_email() {
-    // the file path is based on create_html.php calling this file
-    window.open("check.php?email=" + document.user_form.email1.value + "@" + document.user_form.email2.value,
+    // the file path is based on create_user_html.php calling this file
+    window.open("check_user.php?email=" + document.user_form.email1.value + "@" + document.user_form.email2.value,
         "emailcheck",
         "width=300,height=180,scrollbars=no,resizable=yes");
 }

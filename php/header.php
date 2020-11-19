@@ -22,18 +22,18 @@
 <?php
     if(!$useremail) {
 ?>                
-                <span><a href="http://localhost/php/user/create_html.php">Sign Up</a> </span>
+                <span><a href="http://localhost/php/user/create_user_html.php">Sign Up</a> </span>
                 <span> | </span>
-                <span><a href="http://localhost/php/user/login_html.php">Log In</a></span>
+                <span><a href="http://localhost/php/user/signin_user_html.php">Sign In</a></span>
 <?php
     } else {
                 $logged = "Hi, ".$usernickname."! [Point:".$userpoint."]";
 ?>
                 <span><?=$logged?> </span>
                 <span> | </span>
-                <span><a href="http://localhost/php/user/logout.php">Log Out</a> </span>
+                <span><a href="http://localhost/php/user/signout_user.php">Sign Out</a> </span>
                 <span> | </span>
-                <span><a href="http://localhost/php/user/modify_html.php">Modify Personal Info</a></span>
+                <span><a href="http://localhost/php/user/modify_user_html.php">Modify Personal Info</a></span>
 <?php
     }
 ?>

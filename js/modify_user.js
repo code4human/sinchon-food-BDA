@@ -25,7 +25,7 @@ function check_input() {
         return;
     }
 
-    document.user_form.submit();   // form action="modify.php"
+    document.user_form.submit();   // form action="modify_user.php"
 }
 
 function reset_form() {

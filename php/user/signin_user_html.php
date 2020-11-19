@@ -3,8 +3,8 @@
 <head> 
 	<title>Sinchon Food BDA</title>
 	<link rel="stylesheet" type="text/css" href="../../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../../css/login.css">
-	<script type="text/javascript" src="../../js/login.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/signin_user_html.css">
+	<script type="text/javascript" src="../../js/signin.js"></script>
 </head>
 <body> 
 	<header>
@@ -17,7 +17,7 @@
         <div id="main_content">
       		<div id="login_box">
 				<h2>Log In</h2>
-				<form name="login_form" method="post" action="login.php">
+				<form name="login_form" method="post" action="signin_user.php">
 					<div class="form email">
 						<div class="text">Email Address</div>
 						<div class="input">

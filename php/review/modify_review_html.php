@@ -3,7 +3,7 @@
 <head> 
     <title>Sinchon Food BDA</title>
 	<link rel="stylesheet" type="text/css" href="../../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../../css/create_review.css">
+	<link rel="stylesheet" type="text/css" href="../../css/create_review_html.css">
     <script type="text/javascript" src="../../js/modify_review.js?"></script>
 </head>
 <body> 

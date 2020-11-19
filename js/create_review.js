@@ -23,5 +23,5 @@ function check_input() {
         document.review_form.grade.focus();
         return;
     }
-    document.review_form.submit();      // form action="review_create.php"
+    document.review_form.submit();      // form action="create_review.php"
 }
