@@ -9,8 +9,8 @@
 -- the php(web page) shows the name of menu by performing JOIN,
 -- not to show the id of menu in Review table.
 
-SELECT name
+SELECT Menu.name
 FROM Menu 
     INNER JOIN Review
-    ON Menu.id = Review.menu
+    ON Menu.id = Review.menu_id
 WHERE Review.id = __;    -- '__' will be converted to the php variable $id dynamically in get_review_html.php / modify_review_html.php

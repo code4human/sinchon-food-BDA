@@ -3,7 +3,7 @@ if(!empty($_POST["store_name"])){
     include "../../config.php";
     $con = mysqli_connect($host, $username, $password, $database);   // imported variables in config.php
     // Fetch menu data based on the specific store name
-    $sql = "SELECT * FROM Menu WHERE store = '".$_POST["store_name"]."'";   // AND status = 1 ORDER BY name ASC";
+    $sql = "SELECT * FROM Menu WHERE store_name = '".$_POST["store_name"]."'";   // AND status = 1 ORDER BY name ASC";
     $result = mysqli_query($con, $sql);
      
     // Generate HTML of menu options list 

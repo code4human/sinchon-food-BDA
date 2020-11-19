@@ -3,36 +3,25 @@
 -- I recommend the restaurant with the most reviews in that category.
 -- 회원이 리뷰를 많이 남긴 카테고리(ex.태국식)에서 가장 많은 리뷰를 갖는 가게 추천
 
-/*
-SELECT DISTINCT Store.category, Review.user, 
-	COUNT(Store.category) OVER(PARTITION BY Store.category ) AS count_category
-FROM Review
-	JOIN Store 
-	ON Review.store = Store.name
-WHERE Review.store = Store.name AND Review.user = __   -- '__' will be converted to the php variable $id dynamically in list_analysis_html.php
-ORDER BY count_category DESC
-LIMIT 1;
-*/
-
-SELECT name FROM
+SELECT a.name FROM
 
 (SELECT * FROM Store 
-    JOIN (SELECT store, COUNT(*) AS store_count 
+    JOIN (SELECT store_name, COUNT(*) AS store_count 
         FROM Review 
-        GROUP BY store ORDER BY store_count DESC LIMIT 1) AS b 
-        ON b.store = Store.name) AS a
+        GROUP BY store_name ORDER BY store_count DESC LIMIT 1) AS b 
+        ON b.store_name = Store.name) AS a
 
 JOIN 
 
-(SELECT DISTINCT Store.category, Review.user, 
-    COUNT(Store.category) OVER(PARTITION BY Store.category ) AS count_category
+(SELECT DISTINCT Store.category_name, Review.user_nickname, 
+    COUNT(Store.category_name) OVER(PARTITION BY Store.category_name ) AS count_category
         FROM Review
 	    JOIN Store 
-	    ON Review.store = Store.name
-    WHERE Review.store = Store.name AND Review.user = &&   -- doubled '&' will be converted dynamically to the php variable $id dynamically in list_analysis_html.php
+	    ON Review.store_name = Store.name
+    WHERE Review.store_name = Store.name AND Review.user_nickname = &&   -- doubled '&' will be converted dynamically to the php variable $id dynamically in list_analysis_html.php
     ORDER BY count_category DESC LIMIT 1) AS b
 
-ON a.category = b.category;
+ON a.category_name = b.category_name;
 
 
 

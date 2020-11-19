@@ -27,12 +27,12 @@
             $result = mysqli_query($con, $sql);
             $row = mysqli_fetch_array($result);
             $user = $row["user"];
-            $store = $row["store"];
-            $menu  = $row["menu"];
+            $store = $row["store_name"];
+            $menu  = $row["menu_id"];
             $title = $row["title"];
             $content = $row["content"];
             $image = $row["image"];
-            $grade = $row["rate_star"];
+            $grade = $row["grade"];
         ?>
                 <form name="review_form" method="post" action="modify_review.php?id=<?=$id?>&page=<?=$page?>" enctype="multipart/form-data">
                     <div class="form nickname">

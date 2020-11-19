@@ -1,5 +1,37 @@
+USE team11;
+
+-- Category table data 
+INSERT INTO Category (id, name, ko_name) VALUES
+	(1, 'chicken', '치킨'),
+	(2, 'korean', '한식'),
+	(3, 'snack', '분식'),
+	(4, 'japanese', '일식'),
+	(5, 'chinese', '중식'),
+	(6, 'italian', '이탈리안'),
+	(7, 'thai/vietnamese', '태국/베트남식'),
+	(8, 'lunch_box', '도시락'),
+	(9, 'fast_food', '패스트푸드'),
+	(10, 'pizza', '피자'),
+	(11, 'bossam', '보쌈'),
+	(12, 'dessert', '디저트');
+
+
+-- Store table data 
+INSERT INTO Store (id, category_name, name, ko_name, address) VALUES
+	(1, 'thai/vietnamese', 'Mibundang', '미분당', '서울특별시 서대문구 창천동 72-23'),
+	(2, 'japanese', 'Sio', '시오', '서울특별시 서대문구 연희동 190-4'),
+    (3, 'chinese', 'Hwasang sonmandu', '화상손만두', '서울특별시 서대문구 연희동 132-28'),
+    (4, 'chinese', 'Mokran', '목란', '서울특별시 서대문구 연희동 190-4'),
+    (5, 'italian', 'Lagoosikdang', '라구식당', '서울특별시 서대문구 창천동 2-42'),
+    (6, 'chinese', 'Mr.Seowangmandu_leedaejeom', '미스터서왕만두 이대점', '서울특별시 서대문구 대현동 27-20'),
+    (7, 'japanese', 'Gikku sushi', '기꾸스시', '서울특별시 서대문구 창천동 72-23'),
+    (8, 'thai/vietnamese', 'Bangkok Express_2nd Store', '방콕익스프레스 2호점', '서울특별시 서대문구 대현동 104-25'),
+    (9, 'korean', 'Sosinisso', '소신이쏘', '서울특별시 서대문구 창천동 57-39'),
+    (10, 'dessert', 'Mother In Law Bagel', '마더린러베이글', '서울특별시 서대문구 대현동 56-23');
+
+
 -- Menu table data 
-INSERT INTO Menu (id, store, name, k_name, price) VALUES
+INSERT INTO Menu (id, store_name, name, ko_name, price) VALUES
   (1, 'Mibundang', 'beef brisket rice noodles', '차돌박이 쌀국수', 8000),
   (2, 'Mibundang', 'beef flank rice noodles', '양지 쌀국수', 8500),
   (3, 'Mibundang', 'beef brisket&flank rice noodles', '차돌 양지 쌀국수', 9500),

@@ -27,13 +27,13 @@
             $row = mysqli_fetch_array($result);
 
             $id = $row["id"];
-            $user = $row["user"];
-            $store = $row["store"];
-            $menu = $row["menu"];
+            $user = $row["user_nickname"];
+            $store = $row["store_name"];
+            $menu = $row["menu_id"];
             $title = $row["title"];
             $content = $row["content"];
             $image = $row["image"];
-            $grade = $row["rate_star"];
+            $grade = $row["grade"];
             $pub_date = $row["pub_date"];
             $hit = $row["hit"];
 

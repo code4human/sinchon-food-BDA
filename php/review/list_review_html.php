@@ -58,10 +58,10 @@
 					$row = mysqli_fetch_array($result);
 					// fetch one record
 					$id = $row["id"];
-					$user = $row["user"];
-					$store = $row["store"];
+					$user = $row["user_nickname"];
+					$store = $row["store_name"];
 					$title = $row["title"];
-					$rate_star = $row["rate_star"];
+					$grade = $row["grade"];
 					$pub_date = explode(" ", $row["pub_date"])[0];   // $row["pub_data"] is too long
 					$hit = $row["hit"];
 				?>

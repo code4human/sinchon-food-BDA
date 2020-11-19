@@ -31,17 +31,19 @@
                         if ($result) {
                             if ($row = mysqli_fetch_array($result)) {
                             ?> <span ><?=$row["name"]?></span>
-                    </div>
-                </li>
-            </ul>
                             <?php
                             }
                         }
                         else {
-                            echo "sql query has failed";
+                            echo "No Data Yet";
                         }
+                    ?>
+                    </div>
+                </li>
+            </ul>
+        <?php
             }
-            ?>
+        ?>
             <ul id="second_box">
                 <li id="ana_box_2" class="box">
                     <h3>Most Reviewed Categories</h3>
@@ -56,12 +58,12 @@
                         if ($result) {
                             while ($row = mysqli_fetch_array($result)) {
                     ?>
-                                <span><?=$row["category"]?></span><br>
+                                <span><?=$row["category_name"]?></span><br>
                     <?php
                             }
                         }
                         else {
-                            echo "sql query has failed";
+                            echo "No Data Yet";
                         }
                     ?>
                     </div>
@@ -82,7 +84,7 @@
                             }
                         }
                         else {
-                            echo "sql query has failed";
+                            echo "No Data Yet";
                         }
                     ?> 	
                     </div>
@@ -91,19 +93,19 @@
                     <h3>High Graded Restaurants</h3>
                     <div>
                     <?php
-                        $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_highest_rate_avg_store.sql";
+                        $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_highest_grade_avg_store.sql";
                         $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
                         $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
                         $result = mysqli_query($con, $sql);
                         if ($result) {
                             while ($row = mysqli_fetch_array($result)) {
                     ?>
-                                <span><?=$row["store"]?></span><br>
+                                <span><?=$row["store_name"]?></span><br>
                     <?php
                             }
                         }
                         else {
-                            echo "sql query has failed";
+                            echo "No Data Yet";
                         }
                     ?>    	
                     </div>
@@ -123,14 +125,14 @@
                                 $pub_date = explode(" ", $row["pub_date"])[0];
                     ?>
                                 <span>
-                                    <b><?=$row["user"]?></b> left 
-                                    <a href='../review/get_review_html.php?id=<?=$row["id"]?>&page='>a review of <b><?=$row["store"]?></b> on <?=$pub_date?></a>
+                                    <b><?=$row["user_nickname"]?></b> left 
+                                    <a href='../review/get_review_html.php?id=<?=$row["id"]?>&page='>a review of <b><?=$row["store_name"]?></b> on <?=$pub_date?></a>
                                 </span>
                     <?php
                             }
                         }
                         else {
-                            echo "sql query has failed";
+                            echo "No Data Yet";
                         }
                     ?>	    	
                     </div>
@@ -146,12 +148,12 @@
                         if ($result) {
                             if ($row = mysqli_fetch_array($result)) {
                     ?>
-                                <span><?=$row["store"]?></span>
+                                <span><?=$row["store_name"]?></span>
                     <?php
                             }
                         }
                         else {
-                            echo "sql query has failed";
+                            echo "No Data Yet";
                         }
                     ?>    	
                     </div>
@@ -169,13 +171,13 @@
                                 $pub_date = explode(" ", $row["pub_date"])[0];
                     ?>
                                 <span>
-                                    <a href='../review/get_review_html.php?id=<?=$row["id"]?>&page='><b><?=$row["user"]?></b>'s review of <b><?=$row["store"]?></b> on <?=$pub_date?> (hits <b><?=$row["hit"]?></b>)</a>
+                                    <a href='../review/get_review_html.php?id=<?=$row["id"]?>&page='><b><?=$row["user_nickname"]?></b>'s review of <b><?=$row["store_name"]?></b> on <?=$pub_date?> (hits <b><?=$row["hit"]?></b>)</a>
                                 </span>
                     <?php
                             }
                         }
                         else {
-                            echo "sql query has failed";
+                            echo "No Data Yet";
                         }
                     ?>	    	
                     </div>

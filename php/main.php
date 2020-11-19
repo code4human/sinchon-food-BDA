@@ -59,8 +59,8 @@
                 ?>
                             <li>
                                 <span class="li_tit"><?=$row["title"]?></span>
-                                <span class="li_sto"><?=$row["store"]?></span>
-                                <span class="li_wri"><?=$row["user"]?></span>
+                                <span class="li_sto"><?=$row["store_name"]?></span>
+                                <span class="li_wri"><?=$row["user_nickname"]?></span>
                             </li>
                 <?php
                         }
