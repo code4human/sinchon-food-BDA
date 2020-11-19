@@ -8,8 +8,9 @@ SELECT a.store_name FROM
 (SELECT * FROM Store 
     JOIN (SELECT store_name, COUNT(*) AS store_count 
         FROM Review 
-        GROUP BY store_name ORDER BY store_count DESC) AS b 
-        ON b.store_name = Store.name) AS a
+        GROUP BY store_name) AS b 
+        ON b.store_name = Store.name
+        ORDER BY store_count DESC) AS a
 
 RIGHT JOIN 
 
@@ -19,9 +20,11 @@ RIGHT JOIN
 	    JOIN Store 
 	    ON Review.store_name = Store.name
     WHERE Review.store_name = Store.name AND Review.user_nickname = &&   -- doubled '&' will be converted dynamically to the php variable $id dynamically in list_analysis_html.php
-    ORDER BY count_category DESC LIMIT 1) AS b
+    ORDER BY count_category DESC) AS b
 
-ON a.category_name = b.category_name;
+ON a.category_name = b.category_name
+
+LIMIT 1;
 
 
 
