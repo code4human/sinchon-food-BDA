@@ -30,7 +30,7 @@
                         $result = mysqli_query($con, $sql);
                         if ($result) {
                             if ($row = mysqli_fetch_array($result)) {
-                            ?> <span ><?=$row["name"]?></span>
+                            ?> <span ><?=$row["store_name"]?></span>
                             <?php
                             }
                         }
