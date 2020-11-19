@@ -4,7 +4,7 @@
     <title>Sinchon Food BDA</title>
     <link rel="stylesheet" type="text/css" href="../../css/common.css">
     <link rel="stylesheet" type="text/css" href="../../css/create_html.css">
-    <script type="text/javascript" src="../../js/create.js"></script>
+    <script type="text/javascript" src="../../js/create_user.js"></script>
 </head>
 <body> 
 	<header>
