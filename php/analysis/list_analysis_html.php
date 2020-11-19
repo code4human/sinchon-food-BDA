@@ -14,8 +14,36 @@
             <img src="../../img/banner.png" style="float: center; max-height: 200px; width: auto;">
         </div>
         <div id="main_content">
-            <ul>
+        <?php
+            if (isset($_SESSION["usernickname"])) {
+        ?>
+            <ul id="first_box">
                 <li id="ana_box_1" class="box">
+                    <h3>A Restaurant You Might Like</h3>
+                    <div>
+                    <?php
+                        $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_custom_taste.sql";
+                        $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
+                        $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
+                        $arr = explode("&&", $sql);
+                        $sql = $arr[0]."'".$_SESSION["usernickname"]."'".$arr[1];
+                        $result = mysqli_query($con, $sql);
+                        if ($result) {
+                            if ($row = mysqli_fetch_array($result)) {
+                            ?> <span ><?=$row["name"]?></span>
+                    </div>
+                </li>
+            </ul>
+                            <?php
+                            }
+                        }
+                        else {
+                            echo "sql query has failed";
+                        }
+            }
+            ?>
+            <ul id="second_box">
+                <li id="ana_box_2" class="box">
                     <h3>Most Reviewed Categories</h3>
                     <div>
                     <?php
@@ -28,7 +56,7 @@
                         if ($result) {
                             while ($row = mysqli_fetch_array($result)) {
                     ?>
-                                <span><?=$row["category"]?></span>
+                                <span><?=$row["category"]?></span><br>
                     <?php
                             }
                         }
@@ -38,7 +66,7 @@
                     ?>
                     </div>
                 </li>
-                <li id="ana_box_2" class="box">
+                <li id="ana_box_3" class="box">
                     <h3>Most Reviewed Restaurants</h3>
                     <div>
                     <?php
@@ -49,7 +77,7 @@
                         if ($result) {
                             while ($row = mysqli_fetch_array($result)) {
                     ?>
-                                <span><?=$row["name"]?></span>
+                                <span><?=$row["name"]?></span><br>
                     <?php
                             }
                         }
@@ -59,8 +87,8 @@
                     ?> 	
                     </div>
                 </li>
-                <li id="ana_box_3" class="box">
-                    <h3>Restaurants With The Highest Average Grade</h3>
+                <li id="ana_box_4" class="box">
+                    <h3>High Graded Restaurants</h3>
                     <div>
                     <?php
                         $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_highest_rate_avg_store.sql";
@@ -70,7 +98,7 @@
                         if ($result) {
                             while ($row = mysqli_fetch_array($result)) {
                     ?>
-                                <span><?=$row["store"]?></span>
+                                <span><?=$row["store"]?></span><br>
                     <?php
                             }
                         }
@@ -81,9 +109,9 @@
                     </div>
                 </li>
             </ul>
-            <ul>
-                <li id="ana_box_4" class="box">
-                    <h3>Where influencer recently visited</h3>
+            <ul id="third_box">
+                <li id="ana_box_5" class="box">
+                    <h3>Where influencer recently visited</h3><h4>(most active user)</h4>
                     <div>
                     <?php
                         $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_influencer_visit.sql";
@@ -107,8 +135,8 @@
                     ?>	    	
                     </div>
                 </li>
-                <li id="ana_box_5" class="box">
-                    <h3>Best Restaurant(reasonable price, many reviews, high grade)</h3>
+                <li id="ana_box_6" class="box">
+                    <h3>Best Restaurant</h3><h4>(low price, many reviews, high grade)</h4>
                     <div>
                     <?php
                         $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_best_store.sql";
@@ -128,8 +156,8 @@
                     ?>    	
                     </div>
                 </li>
-                <li id="ana_box_6" class="box">
-                    <h3>Best Review(high number of hits)</h3>
+                <li id="ana_box_7" class="box">
+                    <h3>Best Review</h3><h4>(high number of hits)</h4>
                     <div>
                     <?php
                         $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_best_review.sql";
@@ -150,34 +178,6 @@
                             echo "sql query has failed";
                         }
                     ?>	    	
-                    </div>
-                </li>
-            </ul>
-        <?php
-            if (isset($_SESSION["usernickname"])) {
-        ?>
-            <ul>
-                <li id="ana_box_7" class="box">
-                    <h3>A Restaurant You Might Like</h3>
-                    <div>
-                    <?php
-                        $sqlFileToExecute = $_SERVER["DOCUMENT_ROOT"]."/sql/select_custom_taste.sql";
-                        $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
-                        $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
-                        $arr = explode("&&", $sql);
-                        $sql = $arr[0]."'".$_SESSION["usernickname"]."'".$arr[1];
-                        $result = mysqli_query($con, $sql);
-                        if ($result) {
-                            if ($row = mysqli_fetch_array($result)) {
-                            ?> <span><?=$row["name"]?></span>
-                            <?php
-                            }
-                        }
-                        else {
-                            echo "sql query has failed";
-                        }
-            }
-            ?>	    	
                     </div>
                 </li>
             </ul>
