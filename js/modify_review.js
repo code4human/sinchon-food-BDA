@@ -17,5 +17,5 @@ function check_input() {
         document.review_form.grade.focus();
         return;
     }
-    document.review_form.submit();
+    document.review_form.submit();   // action="modify_review.php"
 }
