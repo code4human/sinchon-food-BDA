@@ -42,7 +42,7 @@
         <div id="menu_bar">
             <div class="menu_div">
                 <div><a href="http://localhost/index.php">Recent Activity</a></div>
-                <div><a href="#">Search</a></div>                                
+                <div><a href="http://localhost/php/search/search_html.php">Search</a></div>                                
                 <div><a href="http://localhost/php/analysis/list_analysis_html.php">Analysis</a></div>
                 <div><a href="http://localhost/php/review/list_review_html.php">Reviews</a></div>
             </div>

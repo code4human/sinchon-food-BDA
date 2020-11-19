@@ -1,0 +1,58 @@
+/* main_content style */
+#main_content {
+    position: relative; width: 1000px; height: 900px; margin: 20px auto;
+}
+
+/* search_box style */
+#search_box { width: 800px; height: 15%; margin: 0 auto; }
+#search_box h2 { margin: 20px 0; }
+#search_box form { 
+    display: flex; justify-content: space-around; align-items: center; 
+    height: 40%; 
+}
+#search_box form .select { margin: auto 10px auto 0px; }
+#search_box form .select select { padding: 5px 0; }
+#search_box form .content { width: 55%; margin: auto 10px; }
+#search_box form .content input { width: 100%; padding: 10px 10px; }
+#search_box form .buttons { margin: 0 0px 0 10px; }
+
+/* search_result style */
+#search_result { width: 900px; height: 85%; margin: 0 auto; }
+#search_result ul { box-shadow: 0 0 0 1px #dbdbdb; }
+#search_result ul .result_title { display: flex; padding-top: 10px; }
+#search_result ul .result_title h4 { padding: 0 10px; }
+#search_result ul .result_title h4.li_store_nam { width: 30%; }
+#search_result ul .result_title h4.li_cat { width: 20%; }
+#search_result ul .result_title h4.li_add { width: 40%; }
+#search_result ul .result_title h4.li_det { width: 10%; }
+#search_result ul .result_title h4.li_menu_nam { width: 40%; }
+#search_result ul .result_title h4.li_sto { width: 30%; }
+#search_result ul .result_title h4.li_pri { width: 20%; }
+#search_result ul li {
+    display: flex; flex-direction: row; list-style:none;
+    height: 80%; width: 97%; 
+    padding: 5px 15px; 
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+#search_result ul li span { box-shadow: 0 0 0 1px #dbdbdb; padding: 0 5px; }
+#search_result ul li span.li_store_nam { width: 30%; }
+#search_result ul li span.li_cat { width: 20%; }
+#search_result ul li span.li_add { width: 40%; }
+#search_result ul li span.li_det { width: 7%; }
+#search_result ul li span.li_menu_nam { width: 40%; }
+#search_result ul li span.li_sto { width: 30%;}
+#search_result ul li span.li_pri { width: 20%;}
+
+/* button style */
+.button {
+    padding: 15px 30px;
+    background-color: #217645; color: #ffffff;
+    border: none; border-radius: 4px;
+    text-align: center;
+    font-size: 0.875rem; font-weight: 400;
+    cursor: pointer;
+}
+
+/* footer style (no page function) */
+footer { transform: translate(0, 200%); }

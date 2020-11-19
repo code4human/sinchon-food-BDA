@@ -54,3 +54,9 @@
     font-size: 0.875rem; font-weight: 400;
     cursor: pointer;
 }
+
+/* fotter_content */
+#footer_content {
+    position: relative;
+    bottom: 0;
+}
