@@ -26,7 +26,7 @@
             $sql = "SELECT * FROM Review WHERE id=$id";
             $result = mysqli_query($con, $sql);
             $row = mysqli_fetch_array($result);
-            $user = $row["user"];
+            $user = $row["user_nickname"];
             $store = $row["store_name"];
             $menu  = $row["menu_id"];
             $title = $row["title"];
@@ -48,7 +48,7 @@
                         <?php 
                         if($menu) { 
                             // read the sql file
-                            $sqlFileToExecute = '../../sql/join_review_menu.sql';
+                            $sqlFileToExecute = '../../sql/select_join_review_menu.sql';
                             $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
                             $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
                             $arr = explode("__", $sql);

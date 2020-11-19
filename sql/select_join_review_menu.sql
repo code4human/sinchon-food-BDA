@@ -11,6 +11,6 @@
 
 SELECT Menu.name
 FROM Menu 
-    INNER JOIN Review
+    JOIN Review
     ON Menu.id = Review.menu_id
 WHERE Review.id = __;    -- '__' will be converted to the php variable $id dynamically in get_review_html.php / modify_review_html.php

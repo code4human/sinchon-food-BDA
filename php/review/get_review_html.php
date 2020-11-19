@@ -60,7 +60,7 @@
                         <?php 
                         if($menu) { 
                             // read the sql file
-                            $sqlFileToExecute = '../../sql/join_review_menu.sql';
+                            $sqlFileToExecute = '../../sql/select_join_review_menu.sql';
                             $f = fopen($sqlFileToExecute, "r+");   // fopen() returns file pointer to access the file 
                             $sql = fread($f, filesize($sqlFileToExecute));   // Using fread, fetch the content of file
                             $arr = explode("__", $sql);
