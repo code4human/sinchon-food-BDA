@@ -1,4 +1,4 @@
--- To find the best restaurant(reasonable price, many reviews, high grade)
+-- To find the best restaurant(low price, many reviews, high grade)
 SELECT Review.store_name, COUNT(*) AS review_count, AVG(price) AS avg_price, AVG(grade) AS avg_grade
 FROM Review
     JOIN Menu
