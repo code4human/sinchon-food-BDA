@@ -3,7 +3,7 @@
         </div>
         <div id="main_content">
             <div id="point_top_box" class="box">
-                <h4>Active Users</h4>
+                <h4>Most Active Users</h4>
                 <div id="point_top_list">
                     <ul>
                         <li>
