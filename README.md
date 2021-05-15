@@ -1,7 +1,7 @@
 # sinchon-food-BDA
 
 ### ♠ The aim of this project
-This is a website where you can write and share reviews about restaurants.This service analyzes students' preferences in restaurants around Ewha university using the stores’info and reviewed data. 
+This is a website where you can write and share reviews about restaurants. This service analyzes students' preferences in restaurants around Ewha university using the stores’info and reviewed data. 
 
 ### ♠ Images of Website Page
 1. Main page
@@ -19,6 +19,7 @@ This is a website where you can write and share reviews about restaurants.This 
 
 ### ♠ E-R Diagram
 ![E-R Diagram](./README/db_image/erd.png "E-R Diagram") 
+Because `Foreign Key` is `string` type, so DB operation has more cost. However, to minimize `JOIN` operation, the attributes `_name` are set as `Foreign Key`. `Review`'s `menu_id(menu)` that imports `id` as `Foreign Key`, performs the `JOIN` operation.
 
 ### ♠ File Structure
 #### Direcory of `php`
